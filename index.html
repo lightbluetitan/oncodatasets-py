@@ -1,0 +1,906 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A curated collection of oncological, clinical trial, and cancer survival datasets for data analysis, statistical modeling, and machine learning research in Python.">
+      
+      
+        <meta name="author" content="Renzo Caceres Rossi">
+      
+      
+      
+      
+        <link rel="next" href="examples/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>oncodatasets</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#oncodatasets-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="oncodatasets" class="md-header__button md-logo" aria-label="oncodatasets" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            oncodatasets
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lightbluetitan/oncodatasets-py" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightbluetitan/oncodatasets-py
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="oncodatasets" class="md-nav__button md-logo" aria-label="oncodatasets" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    oncodatasets
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lightbluetitan/oncodatasets-py" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightbluetitan/oncodatasets-py
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Welcome">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Philosophy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-pypi-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From PyPI (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-github-latest-development-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From GitHub (Latest Development Version)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-start-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start Tutorial
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start Tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-import-the-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Import the Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-list-available-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. List Available Datasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-load-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Load a Dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-describe-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Describe a dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset Naming Convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-datasets-available-at-oncodatasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Some Datasets available at oncodatasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-licenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Licenses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Welcome">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Philosophy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-pypi-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From PyPI (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-github-latest-development-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From GitHub (Latest Development Version)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-start-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start Tutorial
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start Tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-import-the-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Import the Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-list-available-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. List Available Datasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-load-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Load a Dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-describe-a-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Describe a dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset Naming Convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-datasets-available-at-oncodatasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Some Datasets available at oncodatasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-licenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Licenses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="oncodatasets-documentation">oncodatasets Documentation</h1>
+<h2 id="welcome">Welcome</h2>
+<p>The <code>oncodatasets</code> package provides a curated collection of oncological, clinical trial,
+and cancer survival datasets for data analysis, statistical modeling, and machine learning
+research. It includes datasets related to <strong>breast, lung, ovarian, prostate, bladder,
+colorectal, gastric, and cervical cancer diagnostics and survival analysis, tumor gene
+expression profiles, dose-response carcinogen experiments in laboratory animals,
+patient-reported quality of life (QoL) metrics, and epidemiological cancer incidence and
+mortality rates</strong>.</p>
+<p>The package contains datasets related to breast cancer FNA biopsy features, leukemia and
+lymphoma survival records, BRCA1/BRCA2 mutation risk estimates, prostate-specific antigen
+(PSA) biomarker measurements, bone marrow transplantation outcomes, glioma
+radioimmunotherapy trials, and much more from curated R packages on CRAN.</p>
+<h3 id="philosophy">Philosophy</h3>
+<p>The author's vision is to create <strong>specialized dataset packages</strong> focused on specific
+themes and topics. Instead of searching through multiple generic data packages to find
+relevant datasets, users can go directly to a thematic package where all datasets are
+carefully curated around a particular subject.</p>
+<p>In the case of <code>oncodatasets</code>, every dataset is <strong>exclusively focused on oncological,
+clinical trial, and cancer survival research</strong>, making it the go-to resource for
+researchers, data scientists, statisticians, oncologists, epidemiologists, and students
+working in the fields of oncology, biostatistics, epidemiology, clinical research,
+and machine learning.</p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="installation">Installation</h3>
+<h4 id="from-pypi-recommended">From PyPI (Recommended)</h4>
+<p>The easiest way to install <code>oncodatasets</code> is directly from PyPI:</p>
+<pre><code class="language-bash">pip install oncodatasets
+</code></pre>
+<h4 id="from-github-latest-development-version">From GitHub (Latest Development Version)</h4>
+<p>To get the latest development version with the newest features and bug fixes:</p>
+<pre><code class="language-bash">pip install git+https://github.com/lightbluetitan/oncodatasets-py
+</code></pre>
+<h3 id="quick-start-tutorial">Quick Start Tutorial</h3>
+<h4 id="1-import-the-package">1. Import the Package</h4>
+<pre><code class="language-python">import oncodatasets as ocd
+</code></pre>
+<h4 id="2-list-available-datasets">2. List Available Datasets</h4>
+<p>See all datasets included in the package:</p>
+<pre><code class="language-python"># Get list of all datasets
+datasets = ocd.list_datasets()
+print(datasets)
+</code></pre>
+<h4 id="3-load-a-dataset">3. Load a Dataset</h4>
+<p>Load any dataset as a pandas DataFrame:</p>
+<pre><code class="language-python"># Load breast_lymph_node
+df = ocd.load_dataset('breast_lymph_node')
+
+# Display first rows
+print(df.head())
+
+# Check dataset dimensions
+print(f&quot;Shape: {df.shape}&quot;)
+</code></pre>
+<h4 id="4-describe-a-dataset">4. Describe a dataset</h4>
+<pre><code class="language-python"># Describe a dataset
+print(ocd.describe(&quot;brain_cancer&quot;))
+</code></pre>
+<h3 id="basic-concepts">Basic Concepts</h3>
+<h4 id="dataset-naming-convention">Dataset Naming Convention</h4>
+<p>All dataset names in <code>oncodatasets</code> follow a consistent naming pattern:</p>
+<ul>
+<li>Lowercase with underscores: <code>brain_cancer</code></li>
+<li>Descriptive names that reflect content</li>
+</ul>
+<h4 id="some-datasets-available-at-oncodatasets">Some Datasets available at <code>oncodatasets</code></h4>
+<p>Every dataset is <strong>exclusively focused on oncological, clinical trial, cancer survival datasets and related topics for
+data analysis, statistical modeling, and machine learning</strong>:</p>
+<ul>
+<li><strong>prostate_cancer_treatment</strong>: Comparison of two prostate cancer treatments from a Veteran's Administration randomized controlled trial.</li>
+<li><strong>pulmonary_metastasis</strong>: Pulmonary metastasis times with no censoring.</li>
+<li><strong>glioma_radioimmunotherapy</strong>: Glioma patient data from a yttrium-90-biotin radioimmunotherapy pilot study.</li>
+<li><strong>ovarian_carcinoma_stage</strong>: Survival data for thirty-five women with stage II and IIA ovarian carcinoma.</li>
+<li><strong>leukemia_bone_marrow</strong>: Bone marrow transplantation in the treatment of leukemia.</li>
+</ul>
+<blockquote>
+<p><strong>Disclaimer:</strong> The datasets included in <code>oncodatasets</code> are provided strictly for
+educational, research, and informational purposes. 
+For cancer diagnosis, treatment decisions, or any clinical or healthcare-related
+decision-making, always consult a qualified oncologist or healthcare professional.</p>
+</blockquote>
+<h4 id="data-licenses">Data Licenses</h4>
+<p>All datasets are sourced from the R package ecosystem (CRAN) and maintain their
+original open-source licenses:</p>
+<ul>
+<li>Most datasets use <strong>GPL (&gt;= 2)</strong>, <strong>GPL-2</strong>, or <strong>GPL-3</strong></li>
+<li>Some use <strong>MIT + file LICENSE</strong></li>
+<li>The <code>oncodatasets</code> package itself is licensed under <strong>GNU General Public License v3 or later (GPLv3+)</strong></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
