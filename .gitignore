@@ -1,0 +1,23 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Packaging artifacts
+*.egg-info/
+dist/
+build/
+
+# MkDocs
+site/
+
+# IDEs
+.vscode/
+
+# OS
+Thumbs.db

@@ -1,0 +1,17 @@
+site_name: oncodatasets
+site_description: A curated collection of oncological, clinical trial, and cancer survival datasets for data analysis, statistical modeling, and machine learning research in Python.
+site_author: Renzo Caceres Rossi
+repo_url: https://github.com/lightbluetitan/oncodatasets-py
+repo_name: lightbluetitan/oncodatasets-py
+theme:
+  name: material
+  language: en
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  palette:
+    scheme: default
+    primary: indigo
+    accent: cyan
+nav:
+  - Home: index.md
+  - Examples: examples.md

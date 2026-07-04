@@ -1,0 +1,15 @@
+Cancer,Gender,Counts
+Prostate,M,923
+Breast,M,0
+Colorectal,M,511
+Lung,M,472
+Melanoma,M,362
+Cervix,M,0
+Other,M,1406
+Prostate,F,0
+Breast,F,875
+Colorectal,F,355
+Lung,F,211
+Melanoma,F,282
+Cervix,F,77
+Other,F,1082

@@ -1,0 +1,24 @@
+# Main Documentation
+include README.md
+include LICENSE
+include CHANGELOG.md
+
+# Setup / build config
+include pyproject.toml
+include setup.cfg
+
+# Datasets (inside the Python package)
+recursive-include oncodatasets/data *.csv
+
+# Additional documentation
+recursive-include docs *.md
+
+# Examples
+recursive-include examples *.py
+
+# Do not include
+prune tests
+prune __pycache__
+global-exclude __pycache__/*
+global-exclude *.py[cod]
+global-exclude .DS_Store
