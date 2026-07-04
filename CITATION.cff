@@ -7,7 +7,7 @@ authors:
     orcid: "https://orcid.org/0009-0005-0744-854X"
 title: "oncodatasets"
 version: 0.1.0
-date-released: 2026-07-03
+date-released: 2026-07-04
 abstract: "A curated collection of oncological, clinical trial, and cancer survival datasets for data analysis, statistical modeling, and machine learning research. Includes breast cancer diagnostics, lung and bladder cancer survival analysis, tumor gene expression profiles, dose-response carcinogen experiments in laboratory animals, patient-reported quality of life (QoL) metrics, epidemiological incidence and mortality rates, and clinical trial outcomes from curated R packages on CRAN."
 keywords:
   - oncology
